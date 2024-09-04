@@ -61,6 +61,36 @@ void printprocstks(int prio)
 
 
 /*------------------------------------------------------------------------
+*  task3 start --  user main program
+*------------------------------------------------------------------------
+*/
+int prX;
+void halt();
+
+prch(c)
+char c;
+{
+    int i;
+    sleep(1);	
+}
+int task3()
+{
+    kprintf("Task 3 (printsyscallsummary)\n");
+    syscallsummary_start();        
+    resume(prX = create(prch,2000,20,"proc X",1,'A'));
+    sleep(2);
+    syscallsummary_stop();
+    printsyscallsummary();
+    kprintf("Task 3 (printsyscallsummary) done\n");
+    return 0;
+}
+/*------------------------------------------------------------------------
+*  task3 end --  user main program
+*------------------------------------------------------------------------
+*/
+
+
+/*------------------------------------------------------------------------
  *  main  --  user main program
  *------------------------------------------------------------------------
  */
@@ -70,5 +100,7 @@ int main()
 	kprintf("\n\ntest zfunction 0x%x \n\n", zfunction(0xaabbccdd));
 	kprintf("\n\ntest zfunction C 0x%x \n\n", zfunctionC(0xaabbccdd));
 	printprocstks(10);
+	task3();
+	task3();
 	return 0;
 }

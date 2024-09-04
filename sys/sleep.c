@@ -6,12 +6,12 @@
 #include <q.h>
 #include <sleep.h>
 #include <stdio.h>
-
+#include <prof.h>
 /*------------------------------------------------------------------------
  * sleep  --  delay the calling process n seconds
  *------------------------------------------------------------------------
  */
-SYSCALL	sleep(int n)
+SYSCALL1(SLEEP, sleep, int, n)
 {
 	STATWORD ps;    
 	if (n<0 || clkruns==0)

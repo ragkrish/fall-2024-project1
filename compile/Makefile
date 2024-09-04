@@ -49,7 +49,8 @@ SYS =	blkcmp.c	blkequ.c	main.c		stacktrace.c	\
 	signal.c	signaln.c	sleep.c		sleep10.c	\
 	sleep100.c	sleep1000.c	sreset.c	suspend.c	\
 	unsleep.c	userret.c	wait.c		wakeup.c	\
-	write.c		xdone.c		pci.c		shutdown.c
+	write.c		xdone.c		pci.c		shutdown.c      \
+	prof.c
 
 TTY =	ttyalloc.c	ttycntl.c	ttygetc.c	ttyiin.c	\
 	ttyinit.c	ttynew.c	ttyopen.c	ttyputc.c	\
@@ -448,7 +449,7 @@ control.o: ../sys/control.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/io.h
 create.o: ../sys/create.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/i386.h ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/proc.h \
- ../h/sem.h ../h/io.h ../h/stdio.h
+ ../h/sem.h ../h/io.h ../h/stdio.h ../h/prof.h ../h/profconst.h
 evec.o: ../sys/evec.c /usr/include/stdc-predef.h ../h/conf.h ../h/i386.h \
  ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/proc.h ../h/sem.h \
  ../h/tty.h ../h/q.h ../h/io.h ../h/stdio.h
@@ -518,6 +519,8 @@ pci.o: ../sys/pci.c /usr/include/stdc-predef.h ../h/conf.h ../h/kernel.h \
 poolinit.o: ../sys/poolinit.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/mark.h ../h/bufpool.h \
  ../h/stdio.h
+prof.o: ../sys/prof.c /usr/include/stdc-predef.h ../h/profconst.h \
+ ../h/stdio.h
 putc.o: ../sys/putc.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/io.h
 queue.o: ../sys/queue.c /usr/include/stdc-predef.h ../h/conf.h \
@@ -536,7 +539,8 @@ recvtim.o: ../sys/recvtim.c /usr/include/stdc-predef.h ../h/conf.h \
 resched.o: ../sys/resched.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/proc.h ../h/q.h
 resume.o: ../sys/resume.c /usr/include/stdc-predef.h ../h/conf.h \
- ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/proc.h ../h/stdio.h
+ ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/proc.h ../h/stdio.h \
+ ../h/prof.h ../h/profconst.h
 scount.o: ../sys/scount.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/sem.h
 screate.o: ../sys/screate.c /usr/include/stdc-predef.h ../h/conf.h \
@@ -561,7 +565,7 @@ signaln.o: ../sys/signaln.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/stdio.h
 sleep.o: ../sys/sleep.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/proc.h ../h/q.h \
- ../h/sleep.h ../h/stdio.h
+ ../h/sleep.h ../h/stdio.h ../h/prof.h ../h/profconst.h
 sleep10.o: ../sys/sleep10.c /usr/include/stdc-predef.h ../h/conf.h \
  ../h/kernel.h ../h/systypes.h ../h/mem.h ../h/proc.h ../h/q.h \
  ../h/sleep.h ../h/stdio.h
