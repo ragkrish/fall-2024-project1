@@ -8,8 +8,8 @@ CFLAGS  = -m32 -fno-builtin -c -g -Wall -O ${DEFS} ${INCLUDE}
 SDEFS	= -I../h
 ASFLAGS = --32
 
-CC      =       /usr/bin/gcc -fno-stack-protector -fcf-protection=none
-cPP     =       /usr/bin/gcc -E -fno-stack-protector -fcf-protection=none
+CC      =       /usr/bin/gcc #-fno-stack-protector -fcf-protection=none
+cPP     =       /usr/bin/gcc -E  #-fno-stack-protector -fcf-protection=none
 AS      =       /usr/bin/as
 LD      =       /usr/bin/ld
 MAKETD  =	/usr/X11R6/bin/makedepend
