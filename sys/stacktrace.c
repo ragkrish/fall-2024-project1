@@ -22,10 +22,12 @@ SYSCALL stacktrace(int pid)
 	if (pid != 0 && isbadpid(pid))
 		return SYSERR;
 	if (pid == currpid) {
-		asm("movl %esp,esp");
-		asm("movl %ebp,ebp");
-		sp = esp;
-		fp = ebp;
+//		asm("movl %esp,esp");
+//		asm("movl %ebp,ebp");
+//		sp = esp;
+//		fp = ebp;
+                        asm("movl %%esp, %0" : "=r" (sp));
+                        asm("movl %%ebp, %0" : "=r" (fp));
 	} else {
 		sp = (unsigned long *)proc->pesp;
 		fp = sp + 2; 		/* where ctxsw leaves it */

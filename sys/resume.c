@@ -4,12 +4,13 @@
 #include <kernel.h>
 #include <proc.h>
 #include <stdio.h>
+#include <prof.h>
 
 /*------------------------------------------------------------------------
  * resume  --  unsuspend a process, making it ready; return the priority
  *------------------------------------------------------------------------
  */
-SYSCALL resume(int pid)
+SYSCALL1(RESUME, resume, int, pid)
 {
 	STATWORD ps;    
 	struct	pentry	*pptr;		/* pointer to proc. tab. entry	*/
