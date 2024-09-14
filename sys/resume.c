@@ -4,7 +4,7 @@
 #include <kernel.h>
 #include <proc.h>
 #include <stdio.h>
-#include <prof.h>
+#include <lab0.h>
 
 /*------------------------------------------------------------------------
  * resume  --  unsuspend a process, making it ready; return the priority

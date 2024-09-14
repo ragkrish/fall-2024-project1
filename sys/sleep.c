@@ -6,7 +6,7 @@
 #include <q.h>
 #include <sleep.h>
 #include <stdio.h>
-#include <prof.h>
+#include <lab0.h>
 /*------------------------------------------------------------------------
  * sleep  --  delay the calling process n seconds
  *------------------------------------------------------------------------

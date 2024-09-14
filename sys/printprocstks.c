@@ -3,7 +3,7 @@
 #include <kernel.h>
 #include <proc.h>
 #include <stdio.h>
-#include <bitfunc.h>
+#include <lab0.h>
 
 void printprocstks(int prio)
 {

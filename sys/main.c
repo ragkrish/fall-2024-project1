@@ -2,9 +2,7 @@
 #include <kernel.h>
 #include <proc.h>
 #include <stdio.h>
-#include <bitfunc.h>
-#include <profconst.h>
-#include <printprocstks.h>
+#include <lab0.h>
 
 unsigned int zfunctionC(unsigned int param) {
     // Step 1: Clear the 20th to 27th bits

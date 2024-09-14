@@ -3,7 +3,7 @@
 #ifndef _PROC_H_
 #define _PROC_H_
 
-#include <profconst.h>
+#include <lab0.h>
 /* process table declarations and defined constants			*/
 
 #ifndef	NPROC				/* set the number of processes	*/

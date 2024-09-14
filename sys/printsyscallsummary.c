@@ -1,16 +1,36 @@
-#include <profconst.h>
 #include <stdio.h>
-//#include <proc.h>
-//unsigned long prof_counter[MAX_SYSCALL];
-//unsigned long prof_duration[MAX_SYSCALL];
-//int is_prof = 0;
 #include <conf.h>
 #include <kernel.h>
 #include <proc.h>
+#include <lab0.h>
 char* syscall_names[] = {
+	"sys_freemem",
+	"sys_chprio",
+	"sys_getpid",
+	"sys_getprio",
+	"sys_gettime",
+	"sys_kill",
+	"sys_receive",
+	"sys_recvclr",
+	"sys_recvtim",
+	"sys_resume",
+	"sys_scount",
+	"sys_sdelete",
+	"sys_send",
+	"sys_setdev",
+	"sys_setnok",
+	"sys_screate",
+	"sys_signal",
+	"sys_signaln",
 	"sys_sleep",
-	"sys_create",
-	"sys_resume"
+	"sys_sleep10",
+	"sys_sleep100",
+	"sys_sleep1000",
+	"sys_sreset",
+	"sys_stacktrace",
+	"sys_suspend",
+	"sys_unsleep",
+	"sys_wait",
 };
 
 void syscallsummary_start() {

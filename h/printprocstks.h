@@ -1,1 +1,0 @@
-void printprocstks(int prio);
