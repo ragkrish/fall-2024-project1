@@ -3,6 +3,8 @@
 #include <proc.h>
 #include <stdio.h>
 #include <bitfunc.h>
+#include <profconst.h>
+#include <printprocstks.h>
 
 unsigned int zfunctionC(unsigned int param) {
     // Step 1: Clear the 20th to 27th bits
@@ -15,48 +17,6 @@ unsigned int zfunctionC(unsigned int param) {
     param |= 0x000000ff;
 
     return param;
-}
-
-//struct	pentry	{
-//	char	pstate;			/* process state: PRCURR, etc.	*/
-//	int	pprio;			/* process priority		*/
-//	int	pesp;			/* saved stack pointer		*/
-//	STATWORD pirmask;		/* saved interrupt mask		*/
-//	int	psem;			/* semaphore if process waiting	*/
-//	WORD	pmsg;			/* message sent to this process	*/
-//	char	phasmsg;		/* nonzero iff pmsg is valid	*/
-//	WORD	pbase;			/* base of run time stack	*/
-//	int	pstklen;		/* stack length			*/
-//	WORD	plimit;			/* lowest extent of stack	*/
-//	char	pname[PNMLEN];		/* process name			*/
-//	int	pargs;			/* initial number of arguments	*/
-//	WORD	paddr;			/* initial code address		*/
-//	WORD	pnxtkin;		/* next-of-kin notified of death*/
-//	Bool	ptcpumode;		/* proc is in TCP urgent mode	*/
-//	short	pdevs[2];		/* devices to close upon exit	*/
-//	int	fildes[_NFILE];		/* file - device translation	*/
-//	int	ppagedev;		/* pageing dgram device		*/
-//	int	pwaitret;
-//};
-
-
-void printprocstks(int prio)
-{
-        for (int pid = 0; pid < NPROC; pid++) {
-                struct pentry   *proc = &proctab[pid];
-                if (proc->pprio < prio) continue;
-                // stack base, stack size, stacklimit, and stack pointer. Also, for each process, include the process name, the process id and the process priority.
-                unsigned long   *sp;
-		printf("current pid %d\n", currpid);
-                if (pid == currpid) {
-                        asm("movl %%esp, %0" : "=r" (sp));
-                } else {
-                        sp = (unsigned long *)proc->pesp;
-                }
-                printf("process name %s, id %d, prio %d, stack base 0x%x, stack size 0x%x, stacklimit 0x%x, stack pointer 0x%x \n",
-                                proc->pname, pid, proc->pprio, proc->pbase, proc->pstklen, proc->plimit, sp);
-
-        }
 }
 
 
@@ -75,15 +35,16 @@ char c;
 }
 int task3()
 {
-    kprintf("Task 3 (printsyscallsummary)\n");
+//    kprintf("Task 3 (printsyscallsummary)\n");
     syscallsummary_start();        
     resume(prX = create(prch,2000,20,"proc X",1,'A'));
     sleep(2);
     syscallsummary_stop();
     printsyscallsummary();
-    kprintf("Task 3 (printsyscallsummary) done\n");
+//    kprintf("Task 3 (printsyscallsummary) done\n");
     return 0;
 }
+
 /*------------------------------------------------------------------------
 *  task3 end --  user main program
 *------------------------------------------------------------------------
