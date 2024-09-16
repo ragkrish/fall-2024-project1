@@ -6,20 +6,24 @@
 #include <q.h>
 #include <sleep.h>
 #include <stdio.h>
-#include <prof.h>
+#include <lab0.h>
 /*------------------------------------------------------------------------
  * sleep  --  delay the calling process n seconds
  *------------------------------------------------------------------------
  */
+
 SYSCALL1(SLEEP, sleep, int, n)
 {
+	// start time 
 	STATWORD ps;    
 	if (n<0 || clkruns==0)
+		// end time
 		return(SYSERR);
 	if (n == 0) {
 	        disable(ps);
 		resched();
 		restore(ps);
+		// end time
 		return(OK);
 	}
 	while (n >= 1000) {
@@ -28,5 +32,6 @@ SYSCALL1(SLEEP, sleep, int, n)
 	}
 	if (n > 0)
 		sleep10(10*n);
+	// end time
 	return(OK);
 }

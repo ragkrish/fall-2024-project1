@@ -3,6 +3,7 @@
 #ifndef _PROC_H_
 #define _PROC_H_
 
+#include <lab0.h>
 /* process table declarations and defined constants			*/
 
 #ifndef	NPROC				/* set the number of processes	*/
@@ -60,6 +61,9 @@ struct	pentry	{
 	int	fildes[_NFILE];		/* file - device translation	*/
 	int	ppagedev;		/* pageing dgram device		*/
 	int	pwaitret;
+	unsigned long prof_counter[MAX_SYSCALL];
+	unsigned long prof_duration[MAX_SYSCALL];
+	int     is_prof;
 };
 
 

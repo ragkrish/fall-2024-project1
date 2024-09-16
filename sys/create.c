@@ -8,7 +8,7 @@
 #include <mem.h>
 #include <io.h>
 #include <stdio.h>
-#include <prof.h>
+#include <lab0.h>
 
 LOCAL int newpid();
 
@@ -16,22 +16,13 @@ LOCAL int newpid();
  *  create  -  create a process to start running a procedure
  *------------------------------------------------------------------------
  */
-//SYSCALL create(procaddr,ssize,priority,name,nargs,args)
-//	int	*procaddr;		/* procedure address		*/
-//	int	ssize;			/* stack size in words		*/
-//	int	priority;		/* process priority > 0		*/
-//	char	*name;			/* name (for debugging)		*/
-//	int	nargs;			/* number of args that follow	*/
-//	long	args;			/* arguments (treated like an	*/
-					/* array in the code)		*/
-SYSCALL6(CREATE, create,
-	int*,	procaddr,
-	int,	ssize,
-	int,	priority,
-	char*,	name, 
-	int,	nargs,	  
-	long,	args	  
-)
+SYSCALL create(procaddr,ssize,priority,name,nargs,args)
+	int	*procaddr;		/* procedure address		*/
+	int	ssize;			/* stack size in words		*/
+	int	priority;		/* process priority > 0		*/
+	char	*name;			/* name (for debugging)		*/
+	int	nargs;			/* number of args that follow	*/
+	long	args;			/* arguments (treated like an	*/
 {
 	unsigned long	savsp, *pushsp;
 	STATWORD 	ps;    

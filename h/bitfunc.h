@@ -1,1 +1,0 @@
-long zfunction(long param);
